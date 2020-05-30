@@ -53,7 +53,14 @@ class ProductdataApplicationTests {
 
     @Test
     public void testDelete(){
-        productRepository.deleteById(1);
+        if(productRepository.existsById(1)){
+            productRepository.deleteById(1);
+        }
+    }
+
+    @Test
+    public void testCount(){
+        System.out.println("Total no of records : "+productRepository.count());
     }
 
 }
